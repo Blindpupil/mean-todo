@@ -8,7 +8,7 @@ const app = express();
 
 const port = process.env.PORT || 3100;
 
-app.use('/assets', express.static(__dirname + '/public'));
+app.use('/assets', express.static(__dirname + '/public/angular/build'));
 
 app.set('view engine', 'pug');
 
