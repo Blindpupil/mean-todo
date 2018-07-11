@@ -2,6 +2,13 @@ const bodyParser = require('body-parser');
 const Todos = require('../models/todoModel');
 
 module.exports = function(app) {
+
+  app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
   app.use(bodyParser.json());  // the parser middleware will look at the request before we do anything with it: it will parse json out of the http request body.
   app.use(bodyParser.urlencoded({ extended: true })); // will also help us manage data encoded in the url if there's any
 
